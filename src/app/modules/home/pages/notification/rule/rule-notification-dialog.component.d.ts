@@ -1,4 +1,4 @@
-import { AlarmAction, AlarmAssignmentAction, ComponentLifecycleEvent, NotificationRule, TriggerType } from '@shared/models/notification.models';
+import { AlarmAction, AlarmAssignmentAction, ComponentLifecycleEvent, DeviceEvent, NotificationRule, TriggerType } from '@shared/models/notification.models';
 import { OnDestroy } from '@angular/core';
 import { DialogComponent } from '@shared/components/dialog.component';
 import { Store } from '@ngrx/store';
@@ -15,6 +15,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { AlarmSearchStatus, AlarmSeverity } from '@shared/models/alarm.models';
 import { TranslateService } from '@ngx-translate/core';
 import { MatButton } from '@angular/material/button';
+import { ApiFeature, ApiUsageStateValue } from '@shared/models/api-usage.models';
 import * as i0 from "@angular/core";
 export interface RuleNotificationDialogData {
     rule?: NotificationRule;
@@ -42,6 +43,7 @@ export declare class RuleNotificationDialogComponent extends DialogComponent<Rul
     alarmAssignmentTemplateForm: FormGroup;
     ruleEngineEventsTemplateForm: FormGroup;
     entitiesLimitTemplateForm: FormGroup;
+    apiUsageLimitTemplateForm: FormGroup;
     triggerType: typeof TriggerType;
     triggerTypes: TriggerType[];
     triggerTypeTranslationMap: Map<TriggerType, string>;
@@ -55,6 +57,12 @@ export declare class RuleNotificationDialogComponent extends DialogComponent<Rul
     alarmAssignmentActionTranslationMap: Map<AlarmAssignmentAction, string>;
     componentLifecycleEvents: ComponentLifecycleEvent[];
     componentLifecycleEventTranslationMap: Map<ComponentLifecycleEvent, string>;
+    deviceEvents: DeviceEvent[];
+    deviceEventTranslationMap: Map<DeviceEvent, string>;
+    apiUsageStateValues: ApiUsageStateValue[];
+    apiUsageStateValueTranslationMap: Map<ApiUsageStateValue, string>;
+    apiFeatures: ApiFeature[];
+    apiFeatureTranslationMap: Map<ApiFeature, string>;
     entityType: typeof EntityType;
     entityTypes: (EntityType | import("@shared/models/entity-type.models").AliasEntityType)[];
     isAdd: boolean;
